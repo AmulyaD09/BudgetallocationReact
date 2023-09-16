@@ -13,12 +13,13 @@ const AllocationForm = (props) => {
         const costValue = parseFloat(cost);
 
         if (isNaN(costValue)) {
-            setError('Please enter a valid number for allocation.');
+            // setError('Please enter a valid number for allocation.');
+            window.alert("Please enter a valid number for allocation.");
             return;
         }
 
         if (costValue > remaining) {
-            setError(`The value cannot exceed remaining funds ${currency}${remaining}`);
+            window.alert(`The value cannot exceed remaining funds ${currency}${remaining}`);
             return;
         }
 

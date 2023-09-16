@@ -7,7 +7,7 @@ const Remaining = () => {
         return (total += item.cost);
     }, 0);
 
-   
+    // Calculate the remaining budget in real-time
     const remainingBudget = budget - totalExpenses;
     const totalStyle = {
         display: 'flex',
