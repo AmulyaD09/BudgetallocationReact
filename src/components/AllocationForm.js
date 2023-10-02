@@ -13,13 +13,14 @@ const AllocationForm = (props) => {
         const costValue = parseFloat(cost);
 
         if (isNaN(costValue)) {
-            // setError('Please enter a valid number for allocation.');
-            window.alert("Please enter a valid number for allocation.");
+            setError('Please enter a valid number for allocation.');
+            // window.alert("Please enter a valid number for allocation.");
             return;
         }
 
         if (costValue > remaining) {
-            window.alert(`The value cannot exceed remaining funds ${currency}${remaining}`);
+            setError(`The value cannot exceed remaining funds ${currency}${remaining}`);
+            // window.alert(`The value cannot exceed remaining funds ${currency}${remaining}`);
             return;
         }
 
@@ -48,22 +49,26 @@ return (
     <div className="row">
         <div className="col-md-3">
             <select className="form-control mb-2" onChange={(event) => setName(event.target.value)}>
-                <option defaultValue>Choose Department...</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Sales">Sales</option>
-                <option value="Finance">Finance</option>
-                <option value="HR">HR</option>
-                <option value="IT">IT</option>
-                <option value="Admin">Admin</option>
+                <option defaultValue>Select your spending excuse...</option>
+                <option value="Rent or Mortgage">Rent or Mortgage</option>
+                <option value="Transport">Transport</option>
+                <option value="Health care">Health care</option>
+                <option value="Food">Food</option>
+                <option value="Loans">Loans</option>
+                <option value="Credit card payments">Credit card payments</option>
+                <option value="Savings and Investments">Savings and Investments</option>
+                <option value="Personal and Entertainment">Personal and Entertainment</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Miscellaneous">Miscellaneous</option>
             </select>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-3" style={{ marginBottom: '35px' }}>
             <select className="form-control mb-2" onChange={(event) => setAction(event.target.value)}>
                 <option value="Add">Add Allocation</option>
                 <option value="Reduce">Reduce Allocation</option>
             </select>
         </div>
-        <div className="col-md-3" style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="col-md-3" style={{ display: 'flex', alignItems: 'center', marginBottom: '37px' }}>
         <span style={{ marginRight: '5px' }}>{currency}</span>
             <input
                 type="number"
@@ -74,7 +79,7 @@ return (
             />
             {error && <div className="invalid-feedback">{error}</div>}
         </div>
-        <div className="col-md-3">
+        <div className="col-md-3" style={{ marginBottom: '35px' }}>
             <button style={{backgroundColor:'#05386B'}} className="btn btn-primary" onClick={submitEvent}>
                 Save
             </button>

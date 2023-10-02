@@ -3,30 +3,16 @@ import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
 
-    const { budget, expenses,currency,dispatch } = useContext(AppContext);
+    const { budget,currency,dispatch } = useContext(AppContext);
     const [newBudget, setNewBudget] = useState(budget);
-    const [validationMessage, setValidationMessage] = useState('');
+    const [validationMessage] = useState('');
 
     const handleBudgetChange = (event) => {
         const updatedBudget = parseInt(event.target.value);
-
-        
-
-        if (updatedBudget >= expenses.reduce((total, expense) => total + expense.cost, 0)) {
-            // new budget is not lower than the total expenses
-            if (updatedBudget <= 20000) {
-                // new budget is not higher than £20,000
+            if (updatedBudget) {
                 dispatch({ type: 'SET_BUDGET', payload: updatedBudget });
                 setNewBudget(updatedBudget);
-                setValidationMessage('');
-            } else {
-                // setValidationMessage('The budget cannot exceed £20,000.');
-                 window.alert("The budget cannot exceed £20,000.");
-            }
-        } else {
-            // setValidationMessage('The budget cannot be lower than the amount spent so far.');
-            window.alert("The budget cannot be lower than the amount spent so far.");
-        }
+            } 
     };
 
   

@@ -9,8 +9,9 @@ const ExpenseList = () => {
         <table className='table'>
               <thead className="thead-light">
             <tr>
-              <th scope="col">Department</th>
-              <th scope="col">Allocated Budget</th>
+              <th scope="col">Expense Type</th>
+              {/* <th scope="col">Allocated Budget</th> */}
+              <th scope="col">Expenses</th>
               <th scope="col">Increase by 10</th>
               <th scope="col">Decrease by 10</th>
               <th scope="col">Delete</th>
@@ -22,7 +23,7 @@ const ExpenseList = () => {
             ))}
             </tbody>
         </table>
-    );
+    );       
 };
 
 export default ExpenseList;
